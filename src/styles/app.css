@@ -34,15 +34,15 @@ main {
     grid-template-columns: repeat(2, auto);
     gap: 1.5rem;
     grid-template-areas:
-        "app_image app_description_tasks"
-        "app_new_task_btn app_new_task_btn";
+        "app_ctn_m_image app_ctn_m_description_tasks"
+        "app_ctn_m_new_task_btn app_ctn_m_new_task_btn";
     height: calc((100dvh - 11.11dvh) - 8dvh);
     padding: var(--padding-def);
 }
 
 .app_ctn_m_image {
     align-self: center;
-    grid-area: app_image;
+    grid-area: app_ctn_m_image;
 }
 
 .app_ctn_m_description_tasks {
@@ -51,7 +51,7 @@ main {
     align-items: self-end;
     flex-direction: column;
     align-self: center;
-    grid-area: app_description_tasks;
+    grid-area: app_ctn_m_description_tasks;
     color: white;
     font-weight: 400;
     font-size: 22pt;
@@ -84,18 +84,18 @@ main {
     width: 80%;
 }
 
-.app_ctn_m_new_task_btn {
-    width: auto;
-    justify-self: end;
-    grid-area: app_new_task_btn;
-}
-
 .app_ctn_m_image {
     width: fit-content;
     height: 500px;
 }
 
-main .app_new_task_btn button {
+.app_ctn_m_new_task_btn {
+    width: auto;
+    justify-self: end;
+    grid-area: app_ctn_m_new_task_btn;
+}
+
+.app_ctn_m_new_task_btn button {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -104,7 +104,7 @@ main .app_new_task_btn button {
     font-size: 14pt;
 }
 
-main .app_new_task_btn button>i {
+.app_ctn_m_new_task_btn button>i {
     font-size: 24pt;
 }
 
