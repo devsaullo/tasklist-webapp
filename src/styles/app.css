@@ -1,0 +1,129 @@
+/* Corpo & Escopo (Definição de variaveis e tema) */
+
+:root {
+    --dark-template: #272727;
+    --white-template: #ffffff;
+    --padding-def: 0 100px;
+}
+
+body {
+    background-color: var(--dark-template);
+}
+
+/* Container Header (Conteudo do topo da página) */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--padding-def);
+    height: 11.11dvh;
+}
+
+.app_ctn_logo img {
+    padding: 10px;
+    width: fit-content;
+    height: 70px;
+}
+
+/* Container Main (Conteudo principal da página) */
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1.5rem;
+    grid-template-areas:
+        "app_image app_description_tasks"
+        "app_new_task_btn app_new_task_btn";
+    height: calc((100dvh - 11.11dvh) - 8dvh);
+    padding: var(--padding-def);
+}
+
+.app_ctn_m_image {
+    align-self: center;
+    grid-area: app_image;
+}
+
+.app_ctn_m_description_tasks {
+    display: flex;
+    gap: 0.8rem;
+    align-items: self-end;
+    flex-direction: column;
+    align-self: center;
+    grid-area: app_description_tasks;
+    color: white;
+    font-weight: 400;
+    font-size: 22pt;
+    letter-spacing: 1px;
+}
+
+.app_ctn_m_description_tasks h1 {
+    width: 80%;
+    font-size: 32pt;
+    font-weight: 700;
+}
+
+.app_ctn_m_description_tasks h1 span {
+    background-color: #966DE8;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.app_ctn_m_description_tasks h2 {
+    width: 80%;
+    font-weight: 500;
+    color: #d6d6d6;
+    font-size: 16pt;
+}
+
+.app_ctn_m_description_tasks p {
+    color: #c9c9c9;
+    font-weight: 300;
+    font-size: 12pt;
+    width: 80%;
+}
+
+.app_ctn_m_new_task_btn {
+    width: auto;
+    justify-self: end;
+    grid-area: app_new_task_btn;
+}
+
+.app_ctn_m_image {
+    width: fit-content;
+    height: 500px;
+}
+
+main .app_new_task_btn button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 14pt;
+}
+
+main .app_new_task_btn button>i {
+    font-size: 24pt;
+}
+
+/* Container Footer (Conteudo do rodapé da página) */
+
+footer {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 11pt;
+    color: #CCCCCC;
+    font-weight: 400;
+    width: 100%;
+    height: 8dvh;
+}
+
+footer a {
+    color: #ffffff;
+    font-weight: 500;
+}
