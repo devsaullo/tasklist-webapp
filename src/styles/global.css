@@ -23,11 +23,23 @@ li {
     all: unset;
 }
 
+img,
+svg {
+    outline: none;
+    user-select: none;
+}
+
 a {
     cursor: pointer;
 }
 
+button {
+    cursor: pointer;
+}
+
 i {
+    width: fit-content;
+    height: fit-content;
     cursor: pointer;
     font-size: 18pt;
 }

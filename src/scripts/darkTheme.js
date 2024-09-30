@@ -14,7 +14,7 @@ const toggleTheme = () => {
    }
 }
 
-export const darkToggleTheme = darkBtn.addEventListener('click', toggleTheme);
+export const darkToggleTheme = () => darkBtn.addEventListener('click', toggleTheme);
 
 if (cTheme === 'light') {
    document.body.setAttribute('data-theme', 'light');
