@@ -1,13 +1,26 @@
 /* Corpo & Escopo (Definição de variaveis e tema) */
 
 :root {
-    --dark-template: #272727;
-    --white-template: #ffffff;
+    --bk-color: #272727;
+    --txt-color: #ffffff;
+    --txt-second-color: #ffffff;
     --padding-def: 0 100px;
 }
 
+[data-theme="light"] {
+    --bk-color: #ffffff;
+    --txt-color: #272727;
+    --txt-second-color: #966de8;
+}
+
 body {
-    background-color: var(--dark-template);
+    background-color: var(--bk-color);
+    color: var(--txt-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+i {
+    color: var(--txt-second-color);
 }
 
 /* Container Header (Conteudo do topo da página) */
@@ -40,6 +53,7 @@ main {
     padding: var(--padding-def);
 }
 
+
 .app_ctn_m_image {
     align-self: center;
     grid-area: app_ctn_m_image;
@@ -52,7 +66,6 @@ main {
     flex-direction: column;
     align-self: center;
     grid-area: app_ctn_m_description_tasks;
-    color: white;
     font-weight: 400;
     font-size: 22pt;
     letter-spacing: 1px;
@@ -62,25 +75,27 @@ main {
     width: 80%;
     font-size: 32pt;
     font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .app_ctn_m_description_tasks h1 span {
-    background-color: #966DE8;
+    color: white;
+    background-color: #966de8 !important;
     border-radius: 5px;
     padding: 5px;
 }
 
 .app_ctn_m_description_tasks h2 {
     width: 80%;
-    font-weight: 500;
-    color: #d6d6d6;
+    font-weight: 400;
     font-size: 16pt;
+    letter-spacing: 0.1px;
 }
 
 .app_ctn_m_description_tasks p {
-    color: #c9c9c9;
     font-weight: 300;
     font-size: 12pt;
+    letter-spacing: 2px;
     width: 80%;
 }
 
@@ -96,11 +111,11 @@ main {
 }
 
 .app_ctn_m_new_task_btn button {
+    color: var(--txt-second-color) !important;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: white;
     font-size: 14pt;
 }
 
@@ -117,13 +132,11 @@ footer {
     flex-direction: column;
     justify-content: center;
     font-size: 11pt;
-    color: #CCCCCC;
     font-weight: 400;
     width: 100%;
     height: 8dvh;
 }
 
 footer a {
-    color: #ffffff;
     font-weight: 500;
 }
