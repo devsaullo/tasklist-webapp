@@ -42,7 +42,11 @@ header {
 
 .app_ctn_logo object {
     width: fit-content;
-    height: 5dvh;
+    height: 5.5dvh;
+}
+
+input:focus{
+    background-color: #966de81a !important;
 }
 
 /* Container Main (Conteudo principal da página) */
@@ -62,6 +66,11 @@ main {
 .app_ctn_m_image {
     align-self: center;
     grid-area: app_ctn_m_image;
+}
+
+.app_ctn_m_image object {
+    width: fit-content;
+    height: 400px;
 }
 
 .app_ctn_m_description_tasks {
@@ -161,17 +170,25 @@ footer a {
     background-color: hsla(0, 0%, 27%, 0.897);
     width: 100%;
     height: 100%;
-    transition-behavior: allow-discrete;
-    transition: display 0.4s ease;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.overlay.in {
+    opacity: 1;
+}
+
+.overlay.out {
+    opacity: 0;
 }
 
 
 .card_new_task {
     color: #966de8;
-    padding: 10px;
+    padding: 15px;
     position: absolute;
     width: 28dvw;
-    height: 66dvh;
+    height: 70dvh;
     border-radius: 20px;
     top: 50%;
     left: 50%;
@@ -179,12 +196,18 @@ footer a {
     display: flex;
     flex-direction: column;
     background-color: #f6f6f6;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card_new_task.out {
+    opacity: 0;
 }
 
 .card_new_task_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -196,13 +219,56 @@ footer a {
 }
 
 .card_new_task_inputs {
-    /*Estilos dos inputs*/
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card_new_task_inputs_fields {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card_new_task_inputs_fields label {
+    padding: 0 5px;
+}
+
+.card_new_task_inputs_fields input {
+    font-size: 11pt;
+    font-weight: 500;
+    color: #7a59bd;
+    padding: 0 10px;
+    width: 100%;
+    height: 5.5dvh;
+    background-color: #ebebeb;
+    border-radius: 20px;
+}
+
+.card_new_task_inputs_fields_data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.card_new_task_inputs_fields select {
+    border-radius: 20px;
+    border: 1px solid #7a59bd;
+    padding: 0 10px;
+    width: 100%;
+    height: 5.5dvh;
+    font-size: 11pt;
+    font-weight: 500;
+    color: #7a59bd;
 }
 
 .card_new_task_btn_create {
+    font-family: 'Poppins';
     width: 100%;
-    height: 5.5dvh;
+    height: 7dvh;
     border-radius: 10px;
+    font-size: 12pt;
+    font-weight: 400;
     text-align: center;
     background-color: #966de8;
     color: white;
