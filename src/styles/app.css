@@ -1,7 +1,7 @@
 /* Corpo & Escopo (Definição de variaveis e tema) */
 
 :root {
-    --bk-color: #272727;
+    --bk-color: #1e1e1e;
     --txt-color: #ffffff;
     --txt-second-color: #ffffff;
     --subtitle-color: #afafaf;
@@ -135,6 +135,8 @@ main {
     font-size: 14pt;
 }
 
+
+
 .app_ctn_m_new_task_btn button>i {
     font-size: 24pt;
 }
@@ -167,21 +169,11 @@ footer a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: hsla(0, 0%, 27%, 0.897);
+    background-color: rgba(33, 33, 33, 0.968);
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
 }
-
-.overlay.in {
-    opacity: 1;
-}
-
-.overlay.out {
-    opacity: 0;
-}
-
 
 .card_new_task {
     color: #966de8;
@@ -196,11 +188,6 @@ footer a {
     display: flex;
     flex-direction: column;
     background-color: #f6f6f6;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.card_new_task.out {
     opacity: 0;
 }
 
@@ -273,6 +260,12 @@ footer a {
     background-color: #966de8;
     color: white;
     margin-bottom: 10px;
+    transition: background-color 0.4s ease;
+}
+
+.card_new_task_btn_create:disabled {
+    cursor: not-allowed ;
+    background-color: #966de88b;
 }
 
 .card_new_task i {
@@ -280,4 +273,24 @@ footer a {
     padding: 5px;
     font-size: 14pt;
     color: #272727;
+}
+
+.card_new_task_msg {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: #272727;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 15px;
+    padding: 10px;
+    opacity: 0;
+}
+
+
+.card_new_task_msg i {
+    font-size: 12pt;
 }
