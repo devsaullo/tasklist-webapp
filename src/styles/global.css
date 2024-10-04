@@ -20,7 +20,7 @@ input,
 a,
 p,
 ul,
-li {
+li, fieldset {
     color: currentColor;
     outline: none;
     list-style: none;
