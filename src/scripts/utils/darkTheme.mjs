@@ -1,6 +1,6 @@
 const darkBtn = document.getElementById('dark_btn');
 const icon = darkBtn.querySelector('i');
-const cTheme = localStorage.getItem('theme');
+const currentTheme = localStorage.getItem('theme');
 
 /**
  * Função que alterna entre os temas light e dark;
@@ -17,7 +17,7 @@ const toggleTheme = () => {
    }
 }
 
-if (cTheme === 'light') {
+if (currentTheme === 'light') {
    document.body.setAttribute('data-theme', 'light');
    icon.classList.replace('fa-sun', 'fa-moon');
 } else {

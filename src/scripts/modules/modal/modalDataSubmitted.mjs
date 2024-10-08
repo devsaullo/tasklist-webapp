@@ -1,4 +1,4 @@
-import { createNewTask } from "../tasks/createNewTask.mjs";
+import { createNewTask } from "../tasks/createTask.mjs";
 
 /**
  * Lida com o envio do formulário de criação de uma nova tarefa.
@@ -11,7 +11,7 @@ import { createNewTask } from "../tasks/createNewTask.mjs";
  * @param {HTMLElement} params.element - Elemento pai, espera receber o Overlay.
  */
 
-export const submitModalData = (event) => {
+export const modalDataSubmitted = (event) => {
   event.preventDefault();
   const overlay = event.currentTarget.closest(".app_overlay");
   if (event.defaultPrevented) {

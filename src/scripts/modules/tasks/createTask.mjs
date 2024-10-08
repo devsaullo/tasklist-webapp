@@ -1,5 +1,5 @@
-import { taskDataController } from "./newTask.mjs";
-import { clearFields } from "../modal/clearFieldsModal.mjs";
+import { task } from "./newTask.mjs";
+import { clearModalField } from "../modal/clearModalField.mjs";
 import { createMsgStatus } from "../../components/msgStructure.mjs";
 import { closeModal } from "../modal/closeModal.mjs";
 import { getFirstClassName } from "../../utils/getFirstClassName.mjs";
@@ -18,7 +18,7 @@ import { getFirstClassName } from "../../utils/getFirstClassName.mjs";
 export const createNewTask = async (element) => {
   // Verificação de tarefa com o mesmo nome, retorna um (boleano)
   const checkTaskExist = window.tasks.some(
-    (task) => task.name === taskDataController.name
+    (arrayTasks) => arrayTasks.name === task.getProp("taskName")
   );
 
   const createTaskButton = document.getElementById("app_btn_create_new_task");
@@ -29,14 +29,14 @@ export const createNewTask = async (element) => {
   if (checkTaskExist) {
     // Criação da mensagem de erro e atribuição de uma variável a mesma.
     const msgErrorCreated = createMsgStatus(element, {
-      content: `A tarefa <span style="font-weight: 700;">${taskDataController.name}</span> já existe!`,
+      content: `A tarefa <span style="font-weight: 700;">${task.getProp("taskName")}</span> já existe!`,
       color: "red",
     });
     // Efeito de transição Fade in (GSAP) e aparição da mensagem.
     gsap.to(getFirstClassName(msgErrorCreated), { opacity: 1, duration: 1 });
     // Limpando os valores dos campos/lista
-    clearFields("data", "taskName");
-    clearFields("input", "taskName");
+    clearModalField("data", "taskName");
+    clearModalField("input", "taskName");
     // Efeitos de transição OUT (GSAP) com timeout || Remoção da mensagem com promise e timeout
     await new Promise((resolve) => {
       setTimeout(() => {
@@ -57,7 +57,7 @@ export const createNewTask = async (element) => {
 
   // Mensagem criada com sucesso
   const msgCreatedSucess = createMsgStatus(element, {
-    content: `A tarefa ${taskDataController.name} foi criada com sucesso`,
+    content: `A tarefa ${task.getProp("taskName")} foi criada com sucesso`,
     color: "green",
   });
   // Efeitos de transição Fade In e Out (GSAP) com timeout || Remoção da mensagem com timeout
@@ -75,12 +75,14 @@ export const createNewTask = async (element) => {
   createTaskButton.disabled = false;
 
   // Fazendo o push para o array principal da minha lista de tarefas, usando spread como cópia da lista de controle (taskDataController)
-  window.tasks.push({ ...taskDataController });
+  window.tasks.push({...task.getProp()});
+  console.log(window.tasks)
+  console.log({ ...task.getProp() })
 
   // Limpando todos os campos dos Inputs
-  clearFields("input");
+  clearModalField("input");
   // Limpando todos os campos da lista de controle.
-  clearFields("data");
+  clearModalField("data");
   // Fechando o modal
   closeModal(element);
 };

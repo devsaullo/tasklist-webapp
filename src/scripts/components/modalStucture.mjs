@@ -31,7 +31,7 @@ export const modalStructure = () => {
                 </div>
                 <div class="app_modal_new_task_inputs_fields">
                     <label>Categoria</label>
-                    <select name="taskCategories" id="task_category" required>
+                    <select name="taskCategory" id="task_category" required>
                         <option value="default" selected disabled >Selecione uma opção</option>
                         <option value="sport">Esporte</option>
                         <option value="health">Saúde</option>

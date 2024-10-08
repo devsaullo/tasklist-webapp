@@ -1,4 +1,4 @@
-import { taskDataController } from "../tasks/newTask.mjs";
+import { task } from "../tasks/newTask.mjs";
 /**
  * Limpa os valores dos campos de entrada (inputs) ou do controlador de dados (Data Controller).
  * 
@@ -11,7 +11,7 @@ import { taskDataController } from "../tasks/newTask.mjs";
  * @param {"taskName"|"taskDate"|"taskSchedule"|"taskCategory"|null} [name] - O nome do campo a ser limpo. Se `null` ou não especificado, todos os campos serão limpos.
  */
 
-export const clearFields = (type, name) => {
+export const clearModalField = (type, name) => {
   if (type === "input") {
     const taskFieldName = document.getElementById("task_name");
     const taskFieldDate = document.getElementById("task_date");
@@ -34,23 +34,23 @@ export const clearFields = (type, name) => {
         taskFieldName.value = null;
         taskFieldDate.value = null;
         taskFieldSchedule.value = null;
-        taskFieldCategory.value = "default";
+        taskFieldCategory.value = null;
         break;
     }
   }
   if (type === "data") {
     switch (name) {
       case "taskName":
-        taskDataController.name = null;
+        task.setProp(name, null);
         break;
       case "taskDate":
-        taskDataController.date = null;
+        task.setProp(name, null);
         break;
       case "taskSchedule":
-        taskDataController.schedule = null;
+        task.setProp(name, null);
         break;
       case "taskCategories":
-        taskDataController.category = "default";
+        task.setProp(name, { name: null, emoji: null });
         break;
       default:
         break;
