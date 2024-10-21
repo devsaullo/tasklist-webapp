@@ -1,3 +1,5 @@
+import { deleteTask } from "../modules/tasks/deleteTask.mjs"
+
 export const taskStructure = () => {
     return(
         `
@@ -13,7 +15,7 @@ export const taskStructure = () => {
                     <p>Teste</p>
                 </div>
             </div>
-            <i class="fa-regular fa-trash-can"></i>
+            <i class="fa-regular fa-trash-can deleteTaskIcon"></i>
         </div>
         `
     )

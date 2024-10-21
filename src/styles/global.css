@@ -30,7 +30,8 @@ li, fieldset {
 }
 
 img,
-svg {
+svg, object {
+    cursor: pointer;
     outline: none;
     user-select: none;
 }

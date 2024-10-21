@@ -1,9 +1,9 @@
-import { Task } from "../../class/Task.mjs";
 import { modalStructure } from "../../components/modalStucture.mjs";
-import { getFirstClassName } from "../../utils/getFirstClassName.mjs";
+import { getFirstClassName } from "../../helpers/getFirstClassName.mjs";
 import { closeModal } from "../modal/closeModal.mjs";
 import { modalChangedValues } from "../modal/modalChangedValues.mjs";
 import { modalDataSubmitted } from "../modal/modalDataSubmitted.mjs";
+import { Task } from "./Task.mjs";
 
 /**
  * Instância da classe Task que contém toda a estrutura das tarefas.

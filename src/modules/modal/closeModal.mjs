@@ -1,4 +1,4 @@
-import { getFirstClassName } from "../../utils/getFirstClassName.mjs";
+import { getFirstClassName } from "../../helpers/getFirstClassName.mjs";
 
 /**
  * Fecha o modal aplicando animações de opacidade e removendo o elemento da DOM.

@@ -1,5 +1,5 @@
-const darkBtn = document.getElementById('dark_btn');
-const icon = darkBtn.querySelector('i');
+const switchThemeButton = document.getElementById('switch_theme_btn')
+const icon = switchThemeButton.querySelector('i');
 const currentTheme = localStorage.getItem('theme');
 
 /**
@@ -28,4 +28,4 @@ if (currentTheme === 'light') {
 /**
  * Função para ouvir o evento de click e alternar entre os temas light e dark. 
 */
-export const darkToggleTheme = () => darkBtn.addEventListener('click', toggleTheme);
+export const switchTheme = () => switchThemeButton.addEventListener('click', toggleTheme);

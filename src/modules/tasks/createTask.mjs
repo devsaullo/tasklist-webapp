@@ -2,7 +2,8 @@ import { task } from "./newTask.mjs";
 import { clearModalField } from "../modal/clearModalField.mjs";
 import { createMsgStatus } from "../../components/msgStructure.mjs";
 import { closeModal } from "../modal/closeModal.mjs";
-import { getFirstClassName } from "../../utils/getFirstClassName.mjs";
+import { getFirstClassName } from "../../helpers/getFirstClassName.mjs";
+import { loadTask } from "./loadTask.mjs";
 
 /**
  * Cria uma nova tarefa e exibe mensagens de status.
@@ -73,11 +74,15 @@ export const createNewTask = async (element) => {
   }, 1000);
   // Habilitando o botão para a próxima criação de tarefa
   createTaskButton.disabled = false;
-
+  let randomID = crypto.randomUUID();
+  const newTask = { id: randomID, ...task.getProp() };
+  const arrayExists = JSON.parse(localStorage.getItem("array")) || [];
   // Fazendo o push para o array principal da minha lista de tarefas, usando spread como cópia da lista de controle (taskDataController)
-  window.tasks.push({...task.getProp()});
+  window.tasks.push(newTask);
+  arrayExists.push(newTask)
+  localStorage.setItem("array", JSON.stringify(arrayExists))
   console.log(window.tasks)
-  console.log({ ...task.getProp() })
+  console.log(arrayExists)
 
   // Limpando todos os campos dos Inputs
   clearModalField("input");
@@ -85,4 +90,5 @@ export const createNewTask = async (element) => {
   clearModalField("data");
   // Fechando o modal
   closeModal(element);
+  loadTask(newTask);
 };
